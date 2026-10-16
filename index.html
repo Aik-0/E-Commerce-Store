@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#047857">
+  <meta name="description" content="Discover quality products at Finora Store. Shop fashion, technology, and everyday essentials.">
+  <title>Finora Store | Shop Smart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="Finora Store home">
+        <span class="brand-icon">F</span>
+        <span>Finora<span class="brand-light"> Store</span></span>
+      </a>
+
+      <form class="search-form" id="search-form" role="search">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Search products..." aria-label="Search products">
+        <button type="submit" class="search-submit">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
+        <button class="icon-button favorite-header" id="favorites-toggle" type="button" aria-label="Show favorites" title="Favorites">
+          ♡ <span class="action-label">Favorites</span>
+          <span class="count-badge" id="favorites-count">0</span>
+        </button>
+        <button class="cart-button" id="cart-toggle" type="button" aria-label="Open shopping cart">
+          <span aria-hidden="true">🛍</span>
+          <span class="action-label">Cart</span>
+          <span class="count-badge" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">WELCOME TO FINORA</span>
+        <h1>Find your next<br><span>favorite thing.</span></h1>
+        <p>Discover thoughtful picks for your everyday life. Great style, smart tech, and essentials you'll love.</p>
+        <a class="primary-button hero-button" href="#shop">Explore Products <span>→</span></a>
+        <div class="hero-trust">
+          <span>✓ Carefully selected products</span>
+          <span>✓ Easy shopping experience</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Featured shopping collection">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+        <div class="hero-product hero-product-main">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85" alt="Premium wireless headphones">
+        </div>
+        <div class="floating-tag tag-top"><span>✦</span> New finds</div>
+        <div class="floating-tag tag-bottom"><span class="tag-dot"></span> Made for your everyday</div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Store benefits">
+      <div class="benefit">
+        <span class="benefit-icon">✦</span>
+        <div><strong>Curated Quality</strong><p>Thoughtfully selected products</p></div>
+      </div>
+      <div class="benefit">
+        <span class="benefit-icon">♡</span>
+        <div><strong>Your Favorites</strong><p>Save what you love</p></div>
+      </div>
+      <div class="benefit">
+        <span class="benefit-icon">✓</span>
+        <div><strong>Simple Checkout</strong><p>An easy demo shopping flow</p></div>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">THE FINORA COLLECTION</span>
+          <h2 id="catalog-title">Explore our products</h2>
+          <p class="section-description">Find something that fits your style.</p>
+        </div>
+        <span class="results-count" id="results-count">0 products</span>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filters-panel" aria-label="Product filters">
+          <div class="filter-heading">
+            <h3>Filters</h3>
+            <button id="clear-filters" class="text-button" type="button">Reset</button>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="category-filter">Category</label>
+            <select id="category-filter">
+              <option value="all">All categories</option>
+              <option value="Technology">Technology</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Sports">Sports</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <div class="price-label-row">
+              <label class="filter-label" for="price-filter">Maximum price</label>
+              <span id="price-val">SAR 1,000</span>
+            </div>
+            <input id="price-filter" type="range" min="50" max="5000" step="50" value="1000">
+            <div class="range-labels"><span>SAR 50</span><span>SAR 5,000</span></div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label" for="sort-select">Sort by</label>
+            <select id="sort-select">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+
+          <label class="checkbox-row">
+            <input id="favorites-only" type="checkbox">
+            <span>Show favorites only</span>
+          </label>
+
+          <div class="filter-note">
+            <span>✦</span>
+            <p>Use the filters to find the products that work best for you.</p>
+          </div>
+        </aside>
+
+        <div class="products-area">
+          <div class="active-filters" id="active-filters"></div>
+          <div class="products-grid" id="products-grid" aria-live="polite"></div>
+          <div class="empty-state hidden" id="empty-state">
+            <span class="empty-icon">⌕</span>
+            <h3>No products found</h3>
+            <p>Try a different search or adjust your filters.</p>
+            <button class="primary-button" id="empty-reset" type="button">Clear filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div>
+        <span class="eyebrow">A LITTLE FINORA IN YOUR DAY</span>
+        <h2>Good finds start here.</h2>
+        <p>Explore the collection and save your favorite picks for later.</p>
+      </div>
+      <a href="#shop" class="primary-button">Shop the collection <span>→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#">
+      <span class="brand-icon">F</span>
+      <span>Finora<span class="brand-light"> Store</span></span>
+    </a>
+    <p>Thoughtful finds for everyday living.</p>
+    <span class="footer-copy">© <span id="current-year"></span> Finora Store. Demo storefront.</span>
+  </footer>
+
+  <!-- Shopping cart drawer -->
+  <div class="overlay hidden" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header">
+      <div><span class="eyebrow">YOUR SELECTION</span><h2>Your Cart <span id="drawer-cart-count">(0)</span></h2></div>
+      <button class="close-button" id="cart-close" type="button" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty hidden" id="cart-empty">
+      <span>🛍</span><h3>Your cart is waiting</h3><p>Find something you love and add it here.</p>
+      <button class="primary-button" id="continue-shopping" type="button">Continue shopping</button>
+    </div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="subtotal-row"><span>Subtotal</span><strong id="cart-subtotal">SAR 0</strong></div>
+      <p class="checkout-note">Shipping and final charges are not calculated in this demo.</p>
+      <button class="primary-button checkout-button" id="checkout-button" type="button">Continue to Checkout <span>→</span></button>
+      <button class="text-button continue-link" id="keep-shopping" type="button">Continue shopping</button>
+    </div>
+  </aside>
+
+  <!-- Product details modal -->
+  <div class="modal-backdrop hidden" id="product-modal-backdrop">
+    <section class="modal product-modal" role="dialog" aria-modal="true" aria-labelledby="detail-name">
+      <button class="close-button modal-close" id="product-modal-close" type="button" aria-label="Close product details">×</button>
+      <div id="product-detail-content"></div>
+    </section>
+  </div>
+
+  <!-- Checkout modal -->
+  <div class="modal-backdrop hidden" id="checkout-modal-backdrop">
+    <section class="modal checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <button class="close-button modal-close" id="checkout-close" type="button" aria-label="Close checkout">×</button>
+      <div id="checkout-content">
+        <span class="eyebrow">ALMOST YOURS</span>
+        <h2 id="checkout-title">Complete your order</h2>
+        <p class="modal-intro">Enter your details to try the demo checkout.</p>
+        <div class="demo-notice"><strong>Demo checkout</strong><span>This prototype does not process payments or send real orders.</span></div>
+        <form id="checkout-form">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="customer-name">Full name</label>
+              <input id="customer-name" name="name" autocomplete="name" required placeholder="Your full name">
+            </div>
+            <div class="form-field">
+              <label for="customer-email">Email address</label>
+              <input id="customer-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+            </div>
+            <div class="form-field full-field">
+              <label for="customer-address">Delivery address</label>
+              <input id="customer-address" name="address" autocomplete="street-address" required placeholder="Street, district, city">
+            </div>
+            <div class="form-field">
+              <label for="customer-city">City</label>
+              <input id="customer-city" name="city" autocomplete="address-level2" required placeholder="Your city">
+            </div>
+            <div class="form-field">
+              <label for="customer-phone">Phone number</label>
+              <input id="customer-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Your phone number">
+            </div>
+          </div>
+          <div class="checkout-summary">
+            <div><span>Items</span><strong id="checkout-items-count">0</strong></div>
+            <div><span>Subtotal</span><strong id="checkout-subtotal">SAR 0</strong></div>
+            <div class="checkout-total"><span>Demo total</span><strong id="checkout-total">SAR 0</strong></div>
+          </div>
+          <button class="primary-button checkout-button" type="submit">Place Demo Order <span>→</span></button>
+          <p class="privacy-note">No payment information is requested or collected.</p>
+        </form>
+      </div>
+      <div id="order-success" class="order-success hidden" aria-live="polite">
+        <div class="success-icon">✓</div>
+        <span class="eyebrow">ORDER DEMO COMPLETE</span>
+        <h2>Thank you, <span id="success-name">friend</span>!</h2>
+        <p>Your demo order has been created in this browser session. No real purchase was made.</p>
+        <div class="order-reference">Demo reference: <strong id="order-reference"></strong></div>
+        <button class="primary-button" id="finish-order" type="button">Continue shopping</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
